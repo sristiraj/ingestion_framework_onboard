@@ -36,8 +36,8 @@ def lambda_handler(event, context):
         logger.info("Event Record: {}".format(json.dumps(event_record)))
 
         key_prefix = object_key[:object_key.find("/")]
-
-    trigger(event_record)
+    
+    trigger(json.loads(event_record))
         
     return {
         'statusCode': 200,
